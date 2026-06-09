@@ -44,7 +44,9 @@ import {
   EyeOff,
   Lock,
   IndianRupee,
-  ClipboardList
+  ClipboardList,
+  RotateCcw,
+  AlertCircle
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -235,19 +237,24 @@ export default function Sidebar({ currentUser, currentPage, pageParams, onNaviga
           { page: 'approvals', tab: 'featured', label: 'Featured', icon: Star },
         ]
       },
-      { page: 'bookings', label: 'Bookings', icon: ClipboardCheck, children: [
-          { page: 'bookings', tab: 'Confirmed', label: 'Active', icon: CheckCircle2 },
-          { page: 'bookings', tab: 'Cancelled', label: 'Cancelled', icon: X },
-          { page: 'bookings', tab: 'Refunded', label: 'Refund Requests', icon: CreditCard },
-          { page: 'bookings', tab: 'Disputed', label: 'Disputes', icon: ShieldAlert },
-        ]
-      },
-      { page: 'payments', label: 'Payments', icon: CreditCard, children: [
-          { page: 'payments', tab: 'transactions', label: 'Transactions', icon: Wallet },
-          { page: 'payments', tab: 'refunds', label: 'Refunds', icon: CreditCard },
-          { page: 'payments', tab: 'disputes', label: 'Disputes', icon: ShieldAlert },
-        ]
-      },
+      { page: 'bookings', label: 'Bookings', icon: ClipboardList, children: [
+        { page: 'bookings', tab: 'all', label: 'All Bookings', icon: ClipboardList },
+        { page: 'bookings', tab: 'pending', label: 'Pending', icon: Clock },
+        { page: 'bookings', tab: 'confirmed', label: 'Confirmed', icon: CheckCircle2 },
+        { page: 'bookings', tab: 'cancelled', label: 'Cancelled', icon: X },
+        { page: 'bookings', tab: 'refunded', label: 'Refunded', icon: RotateCcw },
+        { page: 'bookings', tab: 'disputed', label: 'Disputed', icon: ShieldAlert },
+      ]
+    },
+    { page: 'payments', label: 'Payments', icon: CreditCard, children: [
+        { page: 'payments', tab: 'all', label: 'All Payments', icon: Users },
+        { page: 'payments', tab: 'paid', label: 'Paid', icon: CheckCircle2 },
+        { page: 'payments', tab: 'pending', label: 'Pending', icon: Clock },
+        { page: 'payments', tab: 'failed', label: 'Failed', icon: AlertCircle },
+        { page: 'payments', tab: 'refunded', label: 'Refunded', icon: RotateCcw },
+        { page: 'payments', tab: 'disputed', label: 'Disputed', icon: ShieldAlert },
+      ]
+    },
       { page: 'memberships', label: 'Memberships', icon: Gem, children: [
           { page: 'memberships', tab: 'plans', label: 'Plans', icon: LayoutGrid },
           { page: 'memberships', tab: 'subscribers', label: 'Subscribers', icon: Users },
